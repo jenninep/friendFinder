@@ -11,8 +11,13 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
 
 app.get('/', function(req, res) {
-	res.sendFile(path.join(__dirname, 'home.html'))
+	res.sendFile(path.join(__dirname, 'public/home.html'))
 });
+
+app.get('/survey', function(req, res){
+	res.sendFile(path.join(__dirname, 'public/survey.html'));
+})
+app.use(express.static(__dirname + '/public'));
 
 app.listen(PORT, function(){
 	console.log("App is listening on port:" + PORT);

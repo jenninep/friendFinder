@@ -1,0 +1,24 @@
+/*html {
+	height: 100%;
+	background: url('valentines2.jpg') no-repeat center center;
+	background-size: cover;*/
+}
+body{
+	background: none;
+}
+h1{
+	color: red;
+	font-size:40px;
+}
+
+h4, #q1{
+	color: grey;
+}
+
+h3{
+	color:red;
+}
+.btn-lg{
+	background-color: red;
+	border-radius: 9px;
+	margin-top: 10px;
