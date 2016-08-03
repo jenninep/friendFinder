@@ -1,27 +1,17 @@
-var express = require('express');
-var bodyParser = require('body-parser');
 var path = require('path');
+var express = require('express');
+// app.use(express.static('app'));
 
-var app = express();
-var port = 3000;
+module.exports = function (app){
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true}));
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
+	app.get('/', function(req, res) {
+		console.log("root route")
+		res.sendFile(path.join(__dirname, '../public/home.html'))
+		
+	});
 
+	app.get('/survey', function(req, res){
+		res.sendFile(path.join(__dirname, '../public/survey.html'));
+	});
 
-
-// Router gives server a map of how to respond when users visit or request data from different URL'S
-app.get('/', function(req, res) {
-	res.sendFile(path.join(__dirname, 'home.html'));
-});
-
-app.get('/survey', function(req, res){
-	res.sendFile(path.join(__dirname, 'survey.htm'));
-})
-
-//Listener starts server
-app.listen(PORT, function(){
-	console.log("App is listening on port:" + PORT);
-});
+}
