@@ -192,38 +192,46 @@ function addFriend(friend) {
 var friendsArray = [];
 
 $('#submitButton').on('click', function(){
-	var newFriend = {
-		name: $('#name').val().trim(),
-		profileLink: $('#profileImage').val().trim(),
-		question1: $('#q1').val().trim(),
-		question2: $('#q2').val().trim(),
-		question3: $('#q3').val().trim(),
-		question4: $('#q4').val().trim(),
-		question5: $('#q5').val().trim(),
-		question6: $('#q6').val().trim(),
-		question7: $('#q7').val().trim(),
-		question8: $('#q8').val().trim(),
-		question9: $('#q9').val().trim(),
-		question10: $('#q10').val().trim(),
-	};
-	// create an array to push answers to
-	for (var i = 0; i <= newFriend.length; i++) {
-		friendsArray.push(newFriend[i]);
-}
-console.log(newFriend);
+// 	var newFriend = {
+// 		name: $('#name').val().trim(),
+// 		profileLink: $('#profileImage').val().trim(),
+// 		question1: $('#q1').val().trim(),
+// 		question2: $('#q2').val().trim(),
+// 		question3: $('#q3').val().trim(),
+// 		question4: $('#q4').val().trim(),
+// 		question5: $('#q5').val().trim(),
+// 		question6: $('#q6').val().trim(),
+// 		question7: $('#q7').val().trim(),
+// 		question8: $('#q8').val().trim(),
+// 		question9: $('#q9').val().trim(),
+// 		question10: $('#q10').val().trim(),
+// 	};
+// 	// create an array to push answers to
+// 	for (var i = 0; i <= newFriend.length; i++) {
+// 		friendsArray.push(newFriend[i]);
+// 	}
+// 	console.log("this is new", newFriend);
 
-var currentURL = window.location.origin;
-	$.post(currentURL + "/api/friends", newFriend, function(data){
-		console.log(data);
-	    		// Grab the result from the AJAX post so that the best match's name and photo are displayed.
-	    		$("#matchName").text(data.name);
-	    		$('#matchImg').attr("src", data.photo);
+// var currentURL = window.location.origin;
+// 	$.post(currentURL + "/api/friends", newFriend, function(data){
+// 		console.log("this is data",data);
+// 	    		// Grab the result from the AJAX post so that the best match's name and photo are displayed.
+// 	    		$("#matchName").text(data.name);
+// 	    		$('#matchImg').attr("src", data.photo);
 
 
-});
+// });
+$.ajax({
+  method: "POST",
+  url: "/api/friends",
+  data: { name: "John", location: "Boston" }
+})
+  .done(function( msg ) {
+    alert( "Data Saved: " + msg );
+  });
 //when clicking the submit button...
 })
-	console.log(friendsArray);
+	// console.log(friendsArray);
 
 	
 

@@ -1,5 +1,6 @@
-var friends = require('../data/friends').friendsArray;
+var friends = require('../data/friends');
 var path = require('path');
+var bodyParser = require('body-parser');
 module.exports = function(app){
 
 // };
@@ -11,8 +12,9 @@ app.get('/api/friends', function(req, res){
 
 
 app.post('/api/friends', function(req, res){
-	console.log('hello');
-	friends.push(req.body);
+	console.log('friends:', friends);
+	// friends.push(req.body);
+  console.log("this is body", req.body)
 	var newScore = req.body.scores;
 
 	var scoreArray = [];
