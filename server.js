@@ -11,12 +11,11 @@ var apiRoutes = require('./routing/api_routes.js')(app);
 // apiRoutes.getFriends(app);
 // apiRoutes.postFriends(app);
 
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
-
-app.use(express.static(__dirname + '/public'));
 
 app.listen(PORT, function(){
 	console.log("App is listening on port:" + PORT);
